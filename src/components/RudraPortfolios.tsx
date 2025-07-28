@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Copy, MessageCircle, Sun, Moon, Menu, X } from "lucide-react"
+import { Github, MessageCircle, Sun, Moon, Menu, X } from "lucide-react"
 import CodeEditor from "./CodeEditor.tsx"
 
 interface RudraPortfolioProps {
@@ -10,7 +10,6 @@ interface RudraPortfolioProps {
 }
 
 export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortfolioProps) {
-  const [copied, setCopied] = useState<boolean>(false)
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
 
@@ -21,12 +20,6 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText("npm add rudra-portfolio")
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -123,7 +116,7 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
       <div
         className={`relative z-20 border-b ${
           isDarkMode ? "border-white/10 bg-black/80" : "border-blue-200/50 bg-white/80"
-        } backdrop-blur-sm`}
+        } backdrop-blur-sm hidden md:block`}
       >
         <div className="max-w-7xl mx-auto px-6 py-3 text-center">
           <span className={`text-sm ${isDarkMode ? "text-gray-400" : "text-slate-600"}`}>
@@ -149,7 +142,7 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
             ? `top-0 ${
                 isDarkMode ? "bg-black/95 shadow-lg shadow-black/20" : "bg-white/95 shadow-lg shadow-blue-900/10"
               }`
-            : `top-[52px] ${isDarkMode ? "bg-black/90" : "bg-white/90"}`
+            : `md:top-[52px] top-0 ${isDarkMode ? "bg-black/90" : "bg-white/90"}`
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -300,8 +293,7 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
       </nav>
 
       <section
-        className="relative z-10 max-w-7xl mx-auto px-6 py-20 min-h-[85vh] flex items-center overflow-hidden"
-        style={{ marginTop: "120px" }}
+        className="relative z-10 max-w-7xl mx-auto px-6 py-20 min-h-[85vh] flex items-center overflow-hidden mt-20 md:mt-[120px]"
       >
         <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
           <div className="space-y-8 lg:pr-12 relative z-10">
@@ -362,29 +354,6 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
                 <MessageCircle className="w-4 h-4 mr-2" />
                 <span>Let's Talk</span>
               </button>
-            </div>
-            <div
-              className={`${
-                isDarkMode ? "bg-black border border-white/20" : "bg-white border border-blue-200"
-              } rounded-sm p-4 font-mono text-sm`}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <span className={`${isDarkMode ? "text-gray-500" : "text-slate-600"}`}>git:(main)</span>
-                  <span className="text-orange-400">✗</span>
-                  <span className={`${isDarkMode ? "text-gray-300" : "text-slate-700"}`}>npm add rudra-portfolio</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <button
-                    onClick={handleCopy}
-                    className={`${
-                      isDarkMode ? "text-gray-400 hover:text-white" : "text-slate-600 hover:text-slate-900"
-                    } transition-colors`}
-                  >
-                    {copied ? <span className="text-green-400">✓ Copied!</span> : <Copy className="w-4 h-4" />}
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
 

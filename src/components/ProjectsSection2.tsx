@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Github, ExternalLink, Filter, ArrowRight, Star, GitFork } from "lucide-react"
 
 const projects = [
@@ -99,9 +99,31 @@ interface ProjectsSection2Props {
 const ProjectsSection2: React.FC<ProjectsSection2Props> = ({ isDarkMode }) => {
   const [activeFilter, setActiveFilter] = useState("all")
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  const [showAllProjects, setShowAllProjects] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const filteredProjects =
     activeFilter === "all" ? projects : projects.filter((project) => project.categoryId === activeFilter)
+
+  // Reset expand state when filter changes
+  useEffect(() => {
+    setShowAllProjects(false)
+  }, [activeFilter])
+
+  // Show only 3 projects on mobile unless expanded
+  const projectsToShow = (isMobile && !showAllProjects) ? filteredProjects.slice(0, 3) : filteredProjects
+  const shouldShowExpandButton = isMobile && filteredProjects.length > 3
 
   return (
     <section
@@ -131,12 +153,12 @@ const ProjectsSection2: React.FC<ProjectsSection2Props> = ({ isDarkMode }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-3 sm:gap-6">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveFilter(category.id)}
-                className={`flex items-center space-x-3 px-6 py-3 rounded-lg border transition-all duration-300 font-mono text-sm ${
+                className={`flex items-center space-x-2 sm:space-x-3 px-3 py-2 sm:px-6 sm:py-3 rounded-lg border transition-all duration-300 font-mono text-xs sm:text-sm ${
                   activeFilter === category.id
                     ? isDarkMode 
                       ? "border-cyan-400 bg-cyan-400/10 text-cyan-400"
@@ -150,12 +172,12 @@ const ProjectsSection2: React.FC<ProjectsSection2Props> = ({ isDarkMode }) => {
                   activeFilter === category.id 
                     ? isDarkMode ? "text-cyan-400" : "text-blue-500"
                     : isDarkMode ? "text-gray-600" : "text-slate-400"
-                }`}>
+                } hidden sm:inline`}>
                   {category.number}
                 </span>
-                <span>{category.name}</span>
+                <span className="text-xs sm:text-sm">{category.name}</span>
                 <span
-                  className={`text-xs px-2 py-1 rounded ${
+                  className={`text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded ${
                     activeFilter === category.id 
                       ? isDarkMode ? "bg-cyan-400/20" : "bg-blue-100"
                       : isDarkMode ? "bg-gray-800" : "bg-slate-200"
@@ -169,9 +191,8 @@ const ProjectsSection2: React.FC<ProjectsSection2Props> = ({ isDarkMode }) => {
         </div>
 
         {/* Projects Grid */}
-                {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projectsToShow.map((project, index) => (
             <div
               key={project.id}
               className={`group relative rounded-xl overflow-hidden transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl ${
@@ -263,6 +284,25 @@ const ProjectsSection2: React.FC<ProjectsSection2Props> = ({ isDarkMode }) => {
             </div>
           ))}
         </div>
+
+        {/* Expand/Collapse Button for Mobile */}
+        {shouldShowExpandButton && (
+          <div className="flex justify-center mt-8 md:hidden">
+            <button
+              onClick={() => setShowAllProjects(!showAllProjects)}
+              className={`flex items-center space-x-2 px-6 py-3 rounded-lg border transition-all duration-300 ${
+                isDarkMode 
+                  ? "border-cyan-400 bg-cyan-400/10 text-cyan-400 hover:bg-cyan-400/20"
+                  : "border-blue-500 bg-blue-50 text-blue-600 hover:bg-blue-100"
+              }`}
+            >
+              <span>{showAllProjects ? 'Show Less' : `Show All ${filteredProjects.length} Projects`}</span>
+              <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${
+                showAllProjects ? 'rotate-90' : 'rotate-0'
+              }`} />
+            </button>
+          </div>
+        )}
 
         {/* Bottom Navigation */}
         <div className="flex items-center justify-center mt-20">

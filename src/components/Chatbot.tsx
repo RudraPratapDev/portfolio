@@ -221,10 +221,10 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
     <>
       {/* Chat Button */}
       {!isOpen && (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
           <button
             onClick={() => setIsOpen(true)}
-            className={`relative inline-flex h-14 w-14 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${
+            className={`relative inline-flex h-12 w-12 sm:h-14 sm:w-14 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${
               isDarkMode ? "focus:ring-offset-gray-900" : "focus:ring-offset-white"
             } group`}
             title="Chat with Rudra's AI Assistant"
@@ -241,7 +241,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                 isDarkMode ? "bg-slate-950 text-white hover:bg-slate-900" : "bg-white text-slate-900 hover:bg-slate-50"
               } backdrop-blur-3xl transition-colors duration-200`}
             >
-              <Bot className="w-6 h-6 animate-pulse group-hover:animate-bounce" />
+              <Bot className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse group-hover:animate-bounce" />
             </span>
           </button>
         </div>
@@ -250,44 +250,48 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`fixed bottom-6 right-6 z-50 ${
+          className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 ${
             isDarkMode ? "bg-zinc-900 border border-zinc-700" : "bg-white border border-slate-300"
-          } rounded-2xl shadow-2xl transition-all duration-300 ${isMinimized ? "w-80 h-16" : "w-96 h-[500px]"}`}
+          } rounded-2xl shadow-2xl transition-all duration-300 ${
+            isMinimized 
+              ? "w-72 h-14 sm:w-80 sm:h-16" 
+              : "w-[calc(100vw-2rem)] h-[calc(100vh-6rem)] max-w-sm max-h-[500px] sm:w-96 sm:h-[500px]"
+          }`}
         >
           {/* Header */}
           <div
-            className={`flex items-center justify-between p-4 border-b ${
+            className={`flex items-center justify-between p-3 sm:p-4 border-b ${
               isDarkMode ? "border-zinc-700 bg-zinc-800" : "border-slate-200 bg-slate-50"
             } rounded-t-2xl`}
           >
-            <div className="flex items-center space-x-3">
-              <div className="relative">
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
+              <div className="relative flex-shrink-0">
                 <div
-                  className={`w-8 h-8 ${
+                  className={`w-7 h-7 sm:w-8 sm:h-8 ${
                     isDarkMode
                       ? "bg-gradient-to-r from-blue-500 to-purple-500"
                       : "bg-gradient-to-r from-blue-600 to-purple-600"
                   } rounded-full flex items-center justify-center`}
                 >
-                  <Bot className="w-4 h-4 text-white" />
+                  <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                 </div>
-                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-zinc-900" />
+                <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-400 rounded-full border-2 border-zinc-900" />
               </div>
-              <div>
-                <h3 className={`${isDarkMode ? "text-white" : "text-slate-900"} font-semibold text-sm`}>
+              <div className="min-w-0 flex-1">
+                <h3 className={`${isDarkMode ? "text-white" : "text-slate-900"} font-semibold text-xs sm:text-sm truncate`}>
                   Rudra's AI Assistant
                 </h3>
-                <p className={`${isDarkMode ? "text-zinc-400" : "text-slate-600"} text-xs`}>
+                <p className={`${isDarkMode ? "text-zinc-400" : "text-slate-600"} text-xs hidden sm:block`}>
                   Online • Voice & Text Enabled
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
               <button
                 onClick={() => setVoiceEnabled(!voiceEnabled)}
                 className={`${
                   isDarkMode ? "text-zinc-400 hover:text-white" : "text-slate-600 hover:text-slate-900"
-                } transition-colors duration-200`}
+                } transition-colors duration-200 hidden sm:block`}
                 title={voiceEnabled ? "Disable voice" : "Enable voice"}
               >
                 {voiceEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -298,7 +302,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                   isDarkMode ? "text-zinc-400 hover:text-white" : "text-slate-600 hover:text-slate-900"
                 } transition-colors duration-200`}
               >
-                {isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
+                {isMinimized ? <Maximize2 className="w-3 h-3 sm:w-4 sm:h-4" /> : <Minimize2 className="w-3 h-3 sm:w-4 sm:h-4" />}
               </button>
               <button
                 onClick={() => setIsOpen(false)}
@@ -306,7 +310,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                   isDarkMode ? "text-zinc-400 hover:text-white" : "text-slate-600 hover:text-slate-900"
                 } transition-colors duration-200`}
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>
@@ -314,19 +318,19 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
           {/* Messages */}
           {!isMinimized && (
             <>
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 h-80">
+              <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 h-64 sm:h-80">
                 {messages.map((message) => (
                   <div
                     key={message.id}
                     className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`flex items-start space-x-2 max-w-[80%] ${
+                      className={`flex items-start space-x-2 max-w-[85%] sm:max-w-[80%] ${
                         message.sender === "user" ? "flex-row-reverse space-x-reverse" : ""
                       }`}
                     >
                       <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
+                        className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
                           message.sender === "user"
                             ? isDarkMode
                               ? "bg-blue-500"
@@ -337,13 +341,13 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                         }`}
                       >
                         {message.sender === "user" ? (
-                          <User className="w-3 h-3 text-white" />
+                          <User className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                         ) : (
-                          <Bot className="w-3 h-3 text-white" />
+                          <Bot className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                         )}
                       </div>
                       <div
-                        className={`rounded-2xl px-4 py-2 ${
+                        className={`rounded-2xl px-3 py-2 sm:px-4 sm:py-2 ${
                           message.sender === "user"
                             ? isDarkMode
                               ? "bg-blue-500 text-white"
@@ -353,7 +357,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                               : "bg-slate-100 text-slate-900"
                         }`}
                       >
-                        <p className="text-sm whitespace-pre-line">{message.text}</p>
+                        <p className="text-xs sm:text-sm whitespace-pre-line">{message.text}</p>
                         <p
                           className={`text-xs mt-1 ${
                             message.sender === "user"
@@ -375,15 +379,15 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                   <div className="flex justify-start">
                     <div className="flex items-start space-x-2">
                       <div
-                        className={`w-6 h-6 rounded-full ${
+                        className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full ${
                           isDarkMode
                             ? "bg-gradient-to-r from-blue-500 to-purple-500"
                             : "bg-gradient-to-r from-blue-600 to-purple-600"
                         } flex items-center justify-center`}
                       >
-                        <Bot className="w-3 h-3 text-white" />
+                        <Bot className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                       </div>
-                      <div className={`${isDarkMode ? "bg-zinc-800" : "bg-slate-100"} rounded-2xl px-4 py-2`}>
+                      <div className={`${isDarkMode ? "bg-zinc-800" : "bg-slate-100"} rounded-2xl px-3 py-2 sm:px-4 sm:py-2`}>
                         <div className="flex space-x-1">
                           <div
                             className={`w-2 h-2 ${
@@ -413,7 +417,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
               </div>
 
               {/* Input */}
-              <div className={`p-4 border-t ${isDarkMode ? "border-zinc-700" : "border-slate-200"}`}>
+              <div className={`p-3 sm:p-4 border-t ${isDarkMode ? "border-zinc-700" : "border-slate-200"}`}>
                 <div className="flex items-center space-x-2">
                   <input
                     ref={inputRef}
@@ -421,19 +425,19 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Ask me about Rudra's projects, skills, or experience..."
+                    placeholder="Ask me about Rudra..."
                     className={`flex-1 ${
                       isDarkMode
                         ? "bg-zinc-800 text-white placeholder-zinc-400 border-zinc-600 focus:ring-blue-500"
                         : "bg-slate-50 text-slate-900 placeholder-slate-500 border-slate-300 focus:ring-blue-500"
-                    } rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 border`}
+                    } rounded-full px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 border`}
                   />
 
                   {/* Voice input button */}
                   {recognitionRef.current && (
                     <button
                       onClick={isListening ? stopListening : startListening}
-                      className={`w-8 h-8 ${
+                      className={`w-7 h-7 sm:w-8 sm:h-8 ${
                         isListening
                           ? "bg-red-500 hover:bg-red-600"
                           : isDarkMode
@@ -444,7 +448,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                       } transition-all duration-200`}
                       title={isListening ? "Stop listening" : "Start voice input"}
                     >
-                      {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                      {isListening ? <MicOff className="w-3 h-3 sm:w-4 sm:h-4" /> : <Mic className="w-3 h-3 sm:w-4 sm:h-4" />}
                     </button>
                   )}
 
@@ -452,23 +456,23 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                   {isSpeaking && (
                     <button
                       onClick={stopSpeaking}
-                      className="w-8 h-8 bg-orange-500 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-all duration-200"
+                      className="w-7 h-7 sm:w-8 sm:h-8 bg-orange-500 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-all duration-200"
                       title="Stop speaking"
                     >
-                      <VolumeX className="w-4 h-4" />
+                      <VolumeX className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
                   )}
 
                   <button
                     onClick={handleSendMessage}
                     disabled={!inputValue.trim()}
-                    className={`w-8 h-8 ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 ${
                       isDarkMode
                         ? "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
                         : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                     } rounded-full flex items-center justify-center text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
-                    <Send className="w-4 h-4" />
+                    <Send className="w-3 h-3 sm:w-4 sm:h-4" />
                   </button>
                 </div>
                 <div className="flex items-center justify-center mt-2">
@@ -476,7 +480,8 @@ const Chatbot: React.FC<ChatbotProps> = ({ isDarkMode }) => {
                     className={`flex items-center space-x-1 text-xs ${isDarkMode ? "text-zinc-500" : "text-slate-500"}`}
                   >
                     <Bot className="w-3 h-3" />
-                    <span>Voice & Text AI • Ask me anything about Rudra!</span>
+                    <span className="hidden sm:inline">Voice & Text AI • Ask me anything about Rudra!</span>
+                    <span className="sm:hidden">AI Assistant</span>
                   </div>
                 </div>
               </div>
