@@ -1,0 +1,6 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with rounded corners -->
+  <rect width="180" height="180" rx="40" fill="#1e293b"/>
+  <!-- The "R" letter optimized for Apple touch icon -->
+  <text x="90" y="110" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="100" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">R</text>
+</svg>
