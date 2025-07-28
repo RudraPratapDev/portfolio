@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+# Grant the workflow permissions to write to the repository's content
+permissions:
+  contents: write
+
 # A single job in this workflow called 'deploy'
 jobs:
   deploy:
@@ -15,17 +19,17 @@ jobs:
 
     # The sequence of steps to run
     steps:
-      # Step 1: Checks out your repository code
+      # Step 1: Checks out your repository code so the workflow can access it
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Sets up Node.js version 18
+      # Step 2: Sets up Node.js version 18 for you to use
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # Step 3: Installs your project's dependencies
+      # Step 3: Installs your project's dependencies from package-lock.json
       - name: Install dependencies
         run: npm install
 
@@ -33,10 +37,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 5: Deploys the built site to GitHub Pages
+      # Step 5: Deploys the built site to the 'gh-pages' branch
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # This is the folder your 'npm run build' command generates
+          # This is the folder your 'npm run build' command generates.
+
           publish_dir: ./dist
