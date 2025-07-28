@@ -1,0 +1,6 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with rounded corners to match navbar style -->
+  <rect width="32" height="32" rx="3" fill="#1e293b"/>
+  <!-- The "R" letter with proper centering and bold font -->
+  <text x="16" y="21" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">R</text>
+</svg>
