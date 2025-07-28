@@ -1,0 +1,42 @@
+# Name of the workflow
+name: Deploy to GitHub Pages
+
+# Run this workflow every time you push to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+# A single job in this workflow called 'deploy'
+jobs:
+  deploy:
+    # The type of machine to run the job on
+    runs-on: ubuntu-latest
+
+    # The sequence of steps to run
+    steps:
+      # Step 1: Checks out your repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Sets up Node.js version 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Step 3: Installs your project's dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Builds your project for production
+      - name: Build project
+        run: npm run build
+
+      # Step 5: Deploys the built site to GitHub Pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # This is the folder your 'npm run build' command generates
+          publish_dir: ./dist
