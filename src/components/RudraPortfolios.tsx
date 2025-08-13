@@ -168,6 +168,14 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
                 about
               </button>
               <button
+                onClick={() => scrollToSection("skills")}
+                className={`${
+                  isDarkMode ? "text-gray-400 hover:text-white" : "text-slate-600 hover:text-slate-900"
+                } transition-colors cursor-pointer`}
+              >
+                skills
+              </button>
+              <button
                 onClick={() => scrollToSection("projects")}
                 className={`${
                   isDarkMode ? "text-gray-400 hover:text-white" : "text-slate-600 hover:text-slate-900"
@@ -176,12 +184,12 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
                 projects
               </button>
               <button
-                onClick={() => scrollToSection("skills")}
+                onClick={() => scrollToSection("blogs")}
                 className={`${
                   isDarkMode ? "text-gray-400 hover:text-white" : "text-slate-600 hover:text-slate-900"
                 } transition-colors cursor-pointer`}
               >
-                skills
+                blogs
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -253,6 +261,14 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
                 about
               </button>
               <button
+                onClick={() => scrollToSection("skills")}
+                className={`${
+                  isDarkMode ? "text-gray-300 hover:text-white" : "text-slate-700 hover:text-slate-900"
+                } transition-colors py-2 border-b ${isDarkMode ? "border-white/5" : "border-slate-200"} text-left`}
+              >
+                skills
+              </button>
+              <button
                 onClick={() => scrollToSection("projects")}
                 className={`${
                   isDarkMode ? "text-gray-300 hover:text-white" : "text-slate-700 hover:text-slate-900"
@@ -261,12 +277,12 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
                 projects
               </button>
               <button
-                onClick={() => scrollToSection("skills")}
+                onClick={() => scrollToSection("blogs")}
                 className={`${
                   isDarkMode ? "text-gray-300 hover:text-white" : "text-slate-700 hover:text-slate-900"
                 } transition-colors py-2 border-b ${isDarkMode ? "border-white/5" : "border-slate-200"} text-left`}
               >
-                skills
+                blogs
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -293,10 +309,10 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
       </nav>
 
       <section
-        className="relative z-10 max-w-7xl mx-auto px-6 py-20 min-h-[85vh] flex items-center overflow-hidden mt-20 md:mt-[120px]"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20 min-h-[85vh] flex items-center overflow-hidden mt-20 md:mt-[120px]"
       >
-        <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
-          <div className="space-y-8 lg:pr-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
+            <div className="space-y-4 lg:space-y-8 lg:pr-12 relative z-10">
             <div
               className={`flex items-center space-x-2 text-sm font-mono ${
                 isDarkMode ? "text-gray-400" : "text-slate-600"
@@ -305,9 +321,61 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span>AI/ML Engineer | Full Stack Developer</span>
             </div>
-            <div className="space-y-6">
+            
+            {/* Tablet Layout: Side-by-side heading and image */}
+            <div className="hidden sm:flex lg:block items-start gap-6">
+              <div className="flex-1 lg:w-full space-y-4 lg:space-y-6">
+                <h1
+                  className={`text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-left ${
+                    isDarkMode ? "text-white" : "text-slate-900"
+                  }`}
+                >
+                  <span className={`${isDarkMode ? "text-white" : "text-slate-900"}`}>Hi, I'm </span>
+                  <span className={`${isDarkMode ? "text-white" : "text-slate-900"}`}>Rudra.</span>
+                  <br />
+                  <span className={`${isDarkMode ? "text-white" : "text-slate-900"}`}>I Build </span>
+                  <span className={`${isDarkMode ? "text-gray-500" : "text-blue-600"}`}>
+                    AI Systems & Modern Web Applications.
+                  </span>
+                </h1>
+
+                {/* Show description text on tablet and desktop */}
+                <p className={`text-lg leading-relaxed max-w-lg ${isDarkMode ? "text-gray-400" : "text-slate-700"}`}>
+                  I design and build AI-driven systems and full-stack applications that solve real-world problems through
+                  scalable, reliable technology.
+                </p>
+              </div>
+              
+              {/* Tablet Image - Side by side with heading */}
+              <div className="sm:block lg:hidden flex-shrink-0">
+                <div className="group relative h-[280px] w-[220px]">
+                  <div
+                    className={`absolute top-0 left-0 h-full w-full rounded-xl ${isDarkMode ? "bg-zinc-800/70" : "bg-blue-200/50"} transform -rotate-6 transition-transform duration-500 ease-in-out group-hover:rotate-[-8deg]`}
+                  ></div>
+                  <div
+                    className={`absolute top-0 left-0 h-full w-full rounded-xl ${isDarkMode ? "bg-zinc-900/80" : "bg-blue-300/40"} transform rotate-6 transition-transform duration-500 ease-in-out group-hover:rotate-[8deg]`}
+                  ></div>
+                  <div
+                    className={`relative h-full w-full overflow-hidden rounded-xl border ${isDarkMode ? "border-zinc-700" : "border-blue-300"} shadow-2xl ${isDarkMode ? "shadow-black/40" : "shadow-blue-900/20"}`}
+                  >
+                    <img
+                      src="https://media.licdn.com/dms/image/v2/D5603AQH5iRnAYJUssQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1693575560185?e=1755734400&v=beta&t=h6UXJSgPOe18Iztm9xrz9GPO0szbA9IBBeDoPOvO5_A"
+                      alt="Rudra Pratap Singh Tomar"
+                      className={`h-full w-full object-cover object-center ${isDarkMode ? "grayscale" : "grayscale-0"} transition-all duration-500 ease-in-out group-hover:scale-110 ${isDarkMode ? "group-hover:grayscale-0" : "group-hover:brightness-110"}`}
+                      onError={(e) => {
+                        ;(e.target as HTMLImageElement).src =
+                          `https://placehold.co/220x280/${isDarkMode ? "000000" : "FFFFFF"}/${isDarkMode ? "FFFFFF" : "000000"}?text=Rudra`
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Mobile Only Layout: Heading above, image below */}
+            <div className="sm:hidden space-y-4">
               <h1
-                className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight ${
+                className={`text-3xl font-bold leading-tight tracking-tight text-center ${
                   isDarkMode ? "text-white" : "text-slate-900"
                 }`}
               >
@@ -319,13 +387,34 @@ export default function RudraPortfolio({ isDarkMode, setIsDarkMode }: RudraPortf
                   AI Systems & Modern Web Applications.
                 </span>
               </h1>
-
-              <p className={`text-lg leading-relaxed max-w-lg ${isDarkMode ? "text-gray-400" : "text-slate-700"}`}>
-                I design and build AI-driven systems and full-stack applications that solve real-world problems through
-                scalable, reliable technology.
-              </p>
+              
+              {/* Mobile Image Card - Below heading */}
+              <div className="flex justify-center py-2">
+                <div className="group relative mx-auto h-[220px] w-[180px]">
+                  <div
+                    className={`absolute top-0 left-0 h-full w-full rounded-xl ${isDarkMode ? "bg-zinc-800/70" : "bg-blue-200/50"} transform -rotate-6 transition-transform duration-500 ease-in-out group-hover:rotate-[-8deg]`}
+                  ></div>
+                  <div
+                    className={`absolute top-0 left-0 h-full w-full rounded-xl ${isDarkMode ? "bg-zinc-900/80" : "bg-blue-300/40"} transform rotate-6 transition-transform duration-500 ease-in-out group-hover:rotate-[8deg]`}
+                  ></div>
+                  <div
+                    className={`relative h-full w-full overflow-hidden rounded-xl border ${isDarkMode ? "border-zinc-700" : "border-blue-300"} shadow-2xl ${isDarkMode ? "shadow-black/40" : "shadow-blue-900/20"}`}
+                  >
+                    <img
+                      src="https://media.licdn.com/dms/image/v2/D5603AQH5iRnAYJUssQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1693575560185?e=1755734400&v=beta&t=h6UXJSgPOe18Iztm9xrz9GPO0szbA9IBBeDoPOvO5_A"
+                      alt="Rudra Pratap Singh Tomar"
+                      className={`h-full w-full object-cover object-center ${isDarkMode ? "grayscale" : "grayscale-0"} transition-all duration-500 ease-in-out group-hover:scale-110 ${isDarkMode ? "group-hover:grayscale-0" : "group-hover:brightness-110"}`}
+                      onError={(e) => {
+                        ;(e.target as HTMLImageElement).src =
+                          `https://placehold.co/220x260/${isDarkMode ? "000000" : "FFFFFF"}/${isDarkMode ? "FFFFFF" : "000000"}?text=Rudra`
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-4">
+
+            <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
               <button
                 onClick={() => scrollToSection("projects")}
                 className={`relative inline-flex h-12 overflow-hidden rounded-md p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 ${

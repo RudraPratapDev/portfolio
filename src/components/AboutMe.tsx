@@ -26,7 +26,8 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-x-16 gap-y-20 lg:grid-cols-2">
-          <div className="group relative mx-auto h-[350px] w-[300px] sm:h-[450px] sm:w-[400px] lg:mx-0">
+          {/* Hide image on mobile and tablet since it's now in hero section, show only on desktop */}
+          <div className="hidden lg:block group relative mx-auto h-[350px] w-[300px] sm:h-[450px] sm:w-[400px] lg:mx-0">
             <div
               className={`absolute top-0 left-0 h-full w-full rounded-xl ${isDarkMode ? "bg-zinc-800/70" : "bg-blue-200/50"} transform -rotate-6 transition-transform duration-500 ease-in-out group-hover:rotate-[-8deg]`}
             ></div>

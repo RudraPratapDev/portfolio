@@ -11,16 +11,30 @@ const techCategories = {
       name: "TypeScript",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
     },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+    {
+      name: "React",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    },
+    {
+      name: "Next.js",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      name: "Node.js",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+    },
     {
       name: "Express.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+      icon: "https://api.iconify.design/simple-icons:express.svg",
     },
-    { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" },
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
-    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+    {
+      name: "Flask",
+      icon: "https://api.iconify.design/simple-icons:flask.svg",
+    },
+    {
+      name: "MongoDB",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+    },
     {
       name: "PostgreSQL",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
@@ -29,50 +43,96 @@ const techCategories = {
       name: "TailwindCSS",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     },
-    { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
-    { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+    {
+      name: "HTML5",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+    },
+    {
+      name: "CSS3",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+    },
+    {
+      name: "TanStack Query",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactquery/reactquery-original.svg",
+    },
+    {
+      name: "Streamlit",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg",
+    },
   ],
   "AI/ML & Data Science": [
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
     {
-      name: "TensorFlow",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg",
+      name: "Python",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
     },
-    { name: "PyTorch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" },
+    {
+      name: "PyTorch",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg",
+    },
     {
       name: "Scikit-learn",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg",
     },
-    { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
-    { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
-    { name: "Keras", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg" },
-    { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" },
+    {
+      name: "Pandas",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg",
+    },
+    {
+      name: "NumPy",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg",
+    },
+    {
+      name: "Keras",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg",
+    },
+    {
+      name: "Jupyter",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg",
+    },
+    {
+      name: "LangChain",
+      icon: "https://api.iconify.design/simple-icons:langchain.svg",
+    },
+    {
+      name: "FAISS",
+      icon: "https://api.iconify.design/simple-icons:meta.svg",
+    },
+    {
+      name: "ChromaDB",
+      icon: "https://api.iconify.design/material-symbols:database.svg",
+    },
   ],
   "DevOps & Tools": [
-    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
-    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     {
-      name: "Kubernetes",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
+      name: "Git",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    },
+    {
+      name: "Github",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
+    },
+    {
+      name: "Docker",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
     },
     {
       name: "AWS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     },
     {
-      name: "Google Cloud",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
+      name: "Azure",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
     },
-    { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
-    { name: "Jenkins", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" },
     {
-      name: "Terraform",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg",
+      name: "VS Code",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
     },
-    { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
-    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
+    {
+      name: "Figma",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
+    },
   ],
-}
+};
 
 
 interface TechStackProps {
@@ -152,29 +212,46 @@ const TechStack: React.FC<TechStackProps> = ({ isDarkMode }) => {
                   style={{ "--scroll-duration": `${icons.length * 2.5}s` } as React.CSSProperties} // Dynamic duration
                 >
                   {/* Render the tech icons twice to create the infinite loop effect */}
-                  {[...icons, ...icons].map((tech, iconIndex) => (
+                  {[...icons, ...icons].map((tech, iconIndex) => {
+                    // List of technologies with colorful icons that shouldn't be inverted in dark mode
+                    const colorfulIcons = ['React', 'Next.js', 'Node.js', 'MongoDB', 'PostgreSQL', 'TailwindCSS', 
+                      'HTML5', 'CSS3', 'Python', 'PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'Keras', 
+                      'Jupyter', 'Git', 'Docker', 'AWS', 'Azure', 'VS Code', 'Figma', 'JavaScript', 'TypeScript'];
+                    const shouldInvert = isDarkMode && !colorfulIcons.includes(tech.name);
+                    
+                    return (
                     <div
                       key={`${categoryIndex}-${iconIndex}`} // Unique key for each icon
                       className="group flex flex-col items-center justify-center mx-4 sm:mx-6 md:mx-8 flex-shrink-0 transition-all duration-300 ease-in-out cursor-pointer" // Adjusted mx for smaller width
-                      style={{ width: "80px", height: "80px" }} // Fixed size for icons
+                      style={{ width: "80px", height: "80px" }} // Original size restored
                     >
                       <img
                         src={tech.icon || "/placeholder.svg"}
                         alt={tech.name}
-                        className={`w-full h-full object-contain ${isDarkMode ? "grayscale group-hover:grayscale-0" : "opacity-70 group-hover:opacity-100"} transition-all duration-300 ease-in-out transform group-hover:scale-110`}
+                        className={`w-full h-full object-contain ${
+                          shouldInvert
+                            ? "filter brightness-0 invert opacity-80 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0" 
+                            : "opacity-70 group-hover:opacity-100"
+                        } transition-all duration-300 ease-in-out transform group-hover:scale-110`}
                         // Fallback for broken images
                         onError={(e) => {
                           ;(e.target as HTMLImageElement).src =
-                            `https://placehold.co/80x80/${isDarkMode ? "000000" : "FFFFFF"}/${isDarkMode ? "FFFFFF" : "000000"}?text=${tech.name.substring(0, 3)}`
+                            `https://placehold.co/80x80/${isDarkMode ? "FFFFFF" : "374151"}/${isDarkMode ? "374151" : "FFFFFF"}?text=${tech.name.substring(0, 3)}`
                         }}
                       />
                       <span
-                        className={`mt-2 text-sm ${isDarkMode ? "text-zinc-400 group-hover:text-white" : "text-slate-600 group-hover:text-slate-900"} transition-colors duration-300`}
+                        className={`mt-2 text-sm text-center leading-tight max-w-full break-words ${isDarkMode ? "text-zinc-400 group-hover:text-white" : "text-slate-600 group-hover:text-slate-900"} transition-colors duration-300`}
+                        style={{ 
+                          fontSize: tech.name.length > 10 ? '11px' : '14px',
+                          lineHeight: tech.name.length > 10 ? '13px' : '16px',
+                          maxWidth: '75px'
+                        }}
                       >
                         {tech.name}
                       </span>
                     </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </div>
             </div>

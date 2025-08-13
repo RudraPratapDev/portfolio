@@ -10,7 +10,7 @@ const projects = [
     title: "Flight Local (B2B Travel Solution)",
     category: "Web Development",
     categoryId: "web",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RX8N1i0hc0B3lah3AfIn8aZyHvPSoJ.png",
+    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=600&h=400&fit=crop",
     description:
       "Comprehensive B2B travel platform with flight booking, hotel reservations, and travel management tools.",
     tech: ["React", "Node.js", "MongoDB", "Express"],
@@ -23,7 +23,7 @@ const projects = [
     title: "AI Lab Granada",
     category: "Web Development",
     categoryId: "web",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RX8N1i0hc0B3lah3AfIn8aZyHvPSoJ.png",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
     description: "AI research lab website with interactive demos and research publications showcase.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/RudraPratapDev/ai-lab-granada",
@@ -35,7 +35,7 @@ const projects = [
     title: "Khora – Urban Thinkers Consulting",
     category: "Web Development",
     categoryId: "web",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RX8N1i0hc0B3lah3AfIn8aZyHvPSoJ.png",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
     description: "Urban planning consultancy website with project showcases and interactive city planning tools.",
     tech: ["React", "D3.js", "Node.js", "PostgreSQL"],
     github: "https://github.com/RudraPratapDev/khora-consulting",
@@ -44,34 +44,34 @@ const projects = [
   },
   {
     id: 4,
-    title: "Tryotel – Cross-Platform Travel App",
-    category: "Mobile Development",
-    categoryId: "mobile",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-a1HuykEXm9pp6oZ2yKPG3accT26eoQ.png",
-    description: "Cross-platform mobile application for flight booking with iOS and Android support.",
-    tech: ["React Native", "TypeScript", "Firebase", "Stripe API"],
-    github: "https://github.com/RudraPratapDev/tryotel-app",
-    demo: "#",
-    featured: true,
-  },
-  {
-    id: 5,
     title: "Tapy – Download. Connect. Upload",
     category: "Web Development",
     categoryId: "web",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-a1HuykEXm9pp6oZ2yKPG3accT26eoQ.png",
-    description: "File sharing and collaboration platform with real-time synchronization and team features.",
-    tech: ["Vue.js", "Node.js", "Socket.io", "AWS S3"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+    description: "File sharing platform with secure download links and user management system.",
+    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
     github: "https://github.com/RudraPratapDev/tapy-platform",
     demo: "#",
     featured: false,
+  },
+  {
+    id: 5,
+    title: "AI Resume Builder",
+    category: "AI/ML",
+    categoryId: "ai",
+    image: "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?w=600&h=400&fit=crop",
+    description: "AI-powered resume builder with smart content suggestions and ATS optimization.",
+    tech: ["React", "OpenAI API", "Node.js", "MongoDB"],
+    github: "https://github.com/RudraPratapDev/ai-resume-builder",
+    demo: "#",
+    featured: true,
   },
   {
     id: 6,
     title: "Medical Image Segmentation AI",
     category: "AI/ML",
     categoryId: "ai",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RX8N1i0hc0B3lah3AfIn8aZyHvPSoJ.png",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop",
     description: "Deep learning model for medical image segmentation using U-Net architecture.",
     tech: ["Python", "PyTorch", "OpenCV", "Flask"],
     github: "https://github.com/RudraPratapDev/medical-segmentation",
@@ -81,15 +81,9 @@ const projects = [
 ]
 
 const categories = [
-  { id: "all", name: "All", count: projects.length, number: "10" },
-  { id: "ai", name: "AI/ML", count: projects.filter((p) => p.categoryId === "ai").length, number: "01" },
-  { id: "web", name: "Web Development", count: projects.filter((p) => p.categoryId === "web").length, number: "08" },
-  {
-    id: "mobile",
-    name: "Mobile Development",
-    count: projects.filter((p) => p.categoryId === "mobile").length,
-    number: "02",
-  },
+  { id: "all", name: "All", count: projects.length, number: "06" },
+  { id: "ai", name: "AI/ML", count: projects.filter((p) => p.categoryId === "ai").length, number: "02" },
+  { id: "web", name: "Web Development", count: projects.filter((p) => p.categoryId === "web").length, number: "04" },
 ]
 
 interface ProjectsSection2Props {
@@ -127,6 +121,7 @@ const ProjectsSection2: React.FC<ProjectsSection2Props> = ({ isDarkMode }) => {
 
   return (
     <section
+      id="projects"
       className={`py-20 sm:py-24 lg:py-32 ${
         isDarkMode ? "bg-zinc-950" : "bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100"
       } transition-colors duration-300`}
